@@ -1,7 +1,9 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAppContext } from '../context/AppContext'
 
 const Header = () => {
+  const {isLoggedIn} = useAppContext()
+
   return (
     <div className="py-6 bg-blue-800">
       <div className="container flex justify-between mx-auto">
@@ -9,7 +11,7 @@ const Header = () => {
           <Link to="/">MernHolidays.com</Link>
         </span>
         <span className="flex space-x-2">
-          {/* {isLoggedIn ? (
+          {isLoggedIn ? (
             <>
               <Link
                 className="flex items-center px-3 font-bold text-white hover:bg-blue-600"
@@ -23,16 +25,16 @@ const Header = () => {
               >
                 My Hotels
               </Link>
-              <SignOutButton />
+              {/* <SignOutButton /> */}
             </>
-          ) : ( */}
+          ) : (
             <Link
               to="/sign-in"
               className="flex items-center px-3 font-bold text-blue-600 bg-white hover:bg-gray-100"
             >
               Sign In
             </Link>
-          {/* )} */}
+           )} 
         </span>
       </div>
     </div>
